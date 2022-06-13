@@ -12,5 +12,5 @@ let listOfImages = {
 };
 
 window.onload = () => {
-	runFunction(listOfImages, 1);
+	runFunction(listOfImages, 2);
 };

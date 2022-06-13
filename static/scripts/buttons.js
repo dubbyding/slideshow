@@ -14,7 +14,7 @@ class Buttons {
 	/* Creating a button and adding it to the DOM. */
 	addButton = (direction) => {
 		let buttonContainer = document.createElement('button');
-		buttonContainer.id = `${direction}-btn`;
+		buttonContainer.id = `${direction}-btn-${this.id}`;
 		buttonContainer.classList.add('btn', `btn--${direction}`);
 
 		let button = document.createElement('img');
@@ -38,7 +38,7 @@ class Buttons {
 		for (let i = 0; i < imageAmount; i++) {
 			let dot = document.createElement('div');
 			dot.classList.add('dot');
-			dot.id = `${i}-image`;
+			dot.id = `${i}-image-${this.id}`;
 			divContainer.appendChild(dot);
 		}
 

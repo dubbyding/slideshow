@@ -131,7 +131,7 @@ class Carousel {
 				let button = document.getElementById(buttonId);
 
 				button.onclick = () => {
-					if (buttonId == 'left-btn') {
+					if (buttonId == `left-btn-${this.id - 1}`) {
 						if (this.counter <= 0) {
 							this.counter = 100 * (this.imageContainer.children.length - 1);
 							this.elementCounter = 5;
@@ -158,8 +158,11 @@ class Carousel {
 		}
 	};
 
+	/* This is the code that is responsible for the changing transition direction using dots. */
 	dotInteraction = () => {
-		let dot = document.getElementsByClassName('dot');
+		let container =
+			document.getElementsByClassName('carousel-container')[this.id - 1];
+		let dot = container.getElementsByClassName('dot');
 		for (let i = 0; i < dot.length; i++) {
 			let dotId = dot[i].id;
 			if (dotId != undefined) {
