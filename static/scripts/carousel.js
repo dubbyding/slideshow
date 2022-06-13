@@ -44,8 +44,11 @@ class Carousel {
 	 *  This is the code that is responsible for the transition.
 	 * @param transitionType - Type of transition i.e. normal or cyclic
 	 *  */
-	transitionImage = (transitionType = 'normal') => {
+	transitionImage = (transitionType) => {
 		this.transition = this.transitionTime / this.elementWidth;
+		if (transitionType != undefined) {
+			this.transitionType = transitionType;
+		}
 
 		this.transitionInterval = setInterval(() => {
 			this.imageContainer.style.left = `-${this.counter}%`;
@@ -79,23 +82,23 @@ class Carousel {
 				}
 
 				/* This is the code that is responsible for the normal transition. */
-				if (transitionType == 'normal') {
+				if (this.transitionType == 'normal') {
 					this.displayInterval = setTimeout(() => {
 						this.edgeReturn();
-						this.transitionImage(transitionType);
+						this.transitionImage();
 					}, this.displayTime);
 				}
 
 				/* This is the code that is responsible for the cyclic transition. */
-				if (transitionType == 'cyclic') {
+				if (this.transitionType == 'cyclic') {
 					if (this.move > 0 || this.elementCounter == 0) {
 						this.displayInterval = setTimeout(() => {
 							this.edgeReturn();
-							this.transitionImage(transitionType);
+							this.transitionImage();
 						}, this.displayTime);
 					} else {
 						this.edgeReturn();
-						this.transitionImage(transitionType);
+						this.transitionImage();
 					}
 				}
 			}
