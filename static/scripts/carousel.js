@@ -67,7 +67,10 @@ class Carousel {
 				clearInterval(this.transitionInterval);
 
 				/* This is the code that is responsible for the changing the active dot. */
-				let dotContainer = document.getElementsByClassName('dot');
+				let currentContainer =
+					document.getElementsByClassName('carousel-container')[this.id - 1];
+				console.log();
+				let dotContainer = currentContainer.getElementsByClassName('dot');
 
 				for (let i in dotContainer) {
 					let dot = document.getElementById(`${dotContainer[i].id}`);
