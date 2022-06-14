@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/static'));
 
 app.use('/', renderStatic);
 
-app.listen(process.env.port, process.env.host, (err, done) => {
+app.listen(process.env.PORT || 3000, process.env.host, (err, done) => {
 	if (err) {
 		console.log('Error starting the server');
 	} else {
